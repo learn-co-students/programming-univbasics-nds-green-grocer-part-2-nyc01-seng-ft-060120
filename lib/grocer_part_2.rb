@@ -80,27 +80,7 @@ end
 
 
 #------------------------------------------------------------------------
-items = [
-      {:item => "AVOCADO", :price => 3.00, :clearance => true},
-      {:item => "AVOCADO", :price => 3.00, :clearance => true},
-      {:item => "AVOCADO", :price => 3.00, :clearance => true},
-      {:item => "KALE", :price => 3.00, :clearance => false},
-      {:item => "BLACK_BEANS", :price => 2.50, :clearance => false},
-      {:item => "ALMONDS", :price => 9.00, :clearance => false},
-      {:item => "TEMPEH", :price => 3.00, :clearance => true},
-      {:item => "CHEESE", :price => 6.50, :clearance => false},
-      {:item => "BEER", :price => 13.00, :clearance => false},
-      {:item => "PEANUTBUTTER", :price => 3.00, :clearance => true},
-      {:item => "BEETS", :price => 2.50, :clearance => false},
-      {:item => "SOY MILK", :price => 4.50, :clearance => true}
-]
 
-
-coupons = [
-      {:item => "AVOCADO", :num => 2, :cost => 5.00},
-      {:item => "BEER", :num => 2, :cost => 20.00},
-      {:item => "CHEESE", :num => 3, :cost => 15.00}
-]
 
 def checkout(cart, coupons)
   consolidated_cart = consolidate_cart(cart)
@@ -110,23 +90,14 @@ def checkout(cart, coupons)
 
   cart.each do |cart_item|
     cart_total += (cart_item[:price] * cart_item[:count])
-    # binding.pry
   end
   
   if cart_total > 100.0
     cart_total -= (cart_total * 0.1)
   end
   cart_total
-  # binding.pry
 end
 
-# checkout(items, coupons)
-
- # This method should call
-  # * consolidate_cart
-  # * apply_coupons
-  # * apply_clearance
-# Calculate total after everything else.
 
 #------------------------------------------------------------------------
 
